@@ -1,0 +1,10 @@
+const http = require('http')
+const fs = require('fs')
+var server = http.createServer((req, res) => {
+    // res.writeHead(200, { 'Content-Type': 'text/plain' })
+    // res.end('Hello World\n')
+    res.writeHead(200, { 'Content-Type': 'image/jpeg' })
+    fs.createReadStream('./image.jpeg').pipe(res)
+})
+server.listen(3001)
+console.log('Server running at http://localhost:3000')
